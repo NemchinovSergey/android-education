@@ -4,4 +4,6 @@
     <string name="text_0">0</string>
     <string name="text_order">ORDER</string>
     <string name="text_price">PRICE</string>
+    <string name="increment_text">+</string>
+    <string name="decrement_text">-</string>
 </resources>
