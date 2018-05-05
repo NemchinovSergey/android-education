@@ -16,13 +16,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/decrement_button"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginLeft="16dp"
             android:text="@string/decrement_text"
             android:textSize="20sp"
             android:onClick="decrement"/>
@@ -58,13 +58,13 @@
 
     <TextView
         android:id="@+id/price_text_view"
-        android:layout_width="97dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:textAlignment="center"
         android:width="50dp"
         android:text="@string/text_0"
+        android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 

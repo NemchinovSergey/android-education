@@ -12,7 +12,7 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private int count;
+    private int quantity;
     private int price = 5;
 
     @Override
@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        display(count);
-        displayPrice(count * price);
+        String message = "Total " + NumberFormat.getCurrencyInstance().format(quantity * price) + "\n"
+                + "Thank you!";
+        displayMessage(message);
     }
 
     /**
@@ -38,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
+    }
+
+    /**
      * This method displays the given quantity value on the screen.
      */
     private void display(int number) {
@@ -46,12 +55,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void increment(View view) {
-        count++;
-        display(count);
+        quantity++;
+        display(quantity);
+        displayPrice(quantity * price);
     }
 
     public void decrement(View view) {
-        if (count > 0) count--;
-        display(count);
+        if (quantity > 0) quantity--;
+        display(quantity);
+        displayPrice(quantity * price);
     }
 }
