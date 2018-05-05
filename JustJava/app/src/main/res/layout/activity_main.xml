@@ -23,6 +23,25 @@
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_price"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/price_text_view"
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:width="50dp"
+        android:text="@string/text_0"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
     <Button
         android:id="@+id/order_button"
         android:layout_width="wrap_content"
