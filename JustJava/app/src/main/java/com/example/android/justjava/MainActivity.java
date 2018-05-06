@@ -65,4 +65,23 @@ public class MainActivity extends AppCompatActivity {
         display(quantity);
         displayPrice(quantity * price);
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("quantity", quantity);
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        outState.putString("price_text", priceTextView.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        quantity = savedInstanceState.getInt("quantity", 0);
+        String priceMessage = savedInstanceState.getString("price_text", "0");
+
+        display(quantity);
+        displayMessage(priceMessage);
+    }
 }
