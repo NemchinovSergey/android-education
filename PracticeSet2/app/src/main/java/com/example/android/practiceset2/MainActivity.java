@@ -2,44 +2,41 @@ package com.example.android.practiceset2;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private int scoreTeamA = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // PASTE CODE YOU WANT TO TEST HERE
-
+        displayForTeamA(scoreTeamA);
     }
 
     /**
-     * Display methods that allow the text to appear on the screen. Don't worry if you don't know
-     * how these work yet. We'll be covering them in lesson 3.
+     * Displays the given score for Team A.
      */
-
-    public void display(String text) {
-        TextView t = (TextView) findViewById(R.id.display_text_view);
-        t.setText(text);
+    public void displayForTeamA(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.team_a_score);
+        scoreView.setText(String.valueOf(score));
     }
 
-    public void display(int text) {
-        TextView t = (TextView) findViewById(R.id.display_text_view);
-        t.setText(text + "");
+    public void addOneForTeamA(View view) {
+        scoreTeamA++;
+        displayForTeamA(scoreTeamA);
     }
 
-    public void display1(String text) {
-        display(text);
+    public void addTwoForTeamA(View view) {
+        scoreTeamA += 2;
+        displayForTeamA(scoreTeamA);
     }
 
-    public void display2(String text) {
-        TextView t = (TextView) findViewById(R.id.display_text_view_2);
-        t.setText(text);
-    }
-
-    public void display3(String text) {
-        TextView t = (TextView) findViewById(R.id.display_text_view_3);
-        t.setText(text);
+    public void addThreeForTeamA(View view) {
+        scoreTeamA += 3;
+        displayForTeamA(scoreTeamA);
     }
 }
