@@ -23,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    private void createOrderSummary(int price, boolean hasWhippedCream) {
+    private void createOrderSummary(int price, boolean hasWhippedCream, boolean hasChocolate) {
         String message = "Name: Bender\n";
         message += "Add whipped cream? " + hasWhippedCream + "\n";
+        message += "Add chocolate? " + hasChocolate + "\n";
         message += "Quantity: " + quantity + "\n";
         message += "Total " + NumberFormat.getCurrencyInstance().format(price) + "\n";
         message += "Thank you!";
@@ -40,10 +41,14 @@ public class MainActivity extends AppCompatActivity {
         boolean hasWhippedCream = whippedCreamView.isChecked();
         Log.i("MainActivity", "Whipped cream: " + hasWhippedCream);
 
+        CheckBox chocolateView = (CheckBox) findViewById(R.id.chocolate_checkbox);
+        boolean hasChocolate = chocolateView.isChecked();
+        Log.i("MainActivity", "Chocolate: " + hasChocolate);
+
         int price = calculatePrice();
         Log.i("MainActivity", "The Price is " + price);
 
-        createOrderSummary(price, hasWhippedCream);
+        createOrderSummary(price, hasWhippedCream, hasChocolate);
     }
 
     private int calculatePrice() {
