@@ -2,7 +2,9 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -21,13 +23,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    private void createOrderSummary(int price, boolean hasWhippedCream) {
+        String message = "Name: Bender\n";
+        message += "Add whipped cream? " + hasWhippedCream + "\n";
+        message += "Quantity: " + quantity + "\n";
+        message += "Total " + NumberFormat.getCurrencyInstance().format(price) + "\n";
+        message += "Thank you!";
+        displayMessage(message);
+    }
+
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        String message = "Total " + NumberFormat.getCurrencyInstance().format(quantity * price) + "\n"
-                + "Thank you!";
-        displayMessage(message);
+        CheckBox whippedCreamView = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        boolean hasWhippedCream = whippedCreamView.isChecked();
+        Log.i("MainActivity", "Whipped cream: " + hasWhippedCream);
+
+        int price = calculatePrice();
+        Log.i("MainActivity", "The Price is " + price);
+
+        createOrderSummary(price, hasWhippedCream);
+    }
+
+    private int calculatePrice() {
+        return quantity * price;
     }
 
     /**
