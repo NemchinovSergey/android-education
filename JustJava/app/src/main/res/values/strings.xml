@@ -8,4 +8,5 @@
     <string name="decrement_text">-</string>
     <string name="text_toppings">TOPPINGS</string>
     <string name="text_whipped_cream">Whipped cream</string>
+    <string name="text_chocolate">Chocolate</string>
 </resources>

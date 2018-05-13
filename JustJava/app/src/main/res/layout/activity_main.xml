@@ -16,20 +16,23 @@
             android:text="@string/text_toppings"
             android:textSize="20sp" />
 
-        <LinearLayout
+        <CheckBox
+            android:id="@+id/whipped_cream_checkbox"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:paddingLeft="24dp"
+            android:text="@string/text_whipped_cream"
+            android:textSize="16dp" />
 
-            <CheckBox
-                android:id="@+id/whipped_cream_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:paddingLeft="24dp"
-                android:text="@string/text_whipped_cream"
-                android:textSize="16dp" />
-
-        </LinearLayout>
+        <CheckBox
+            android:id="@+id/chocolate_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:paddingLeft="24dp"
+            android:text="@string/text_chocolate"
+            android:textSize="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
