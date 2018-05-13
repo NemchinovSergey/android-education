@@ -6,4 +6,6 @@
     <string name="text_price">PRICE</string>
     <string name="increment_text">+</string>
     <string name="decrement_text">-</string>
+    <string name="text_toppings">TOPPINGS</string>
+    <string name="text_whipped_cream">Whipped cream</string>
 </resources>
