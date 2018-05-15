@@ -15,8 +15,11 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
+    public static final int COFFEE_PRICE = 5;
+    public static final int WHIPPED_CREAM_PRICE = 1;
+    public static final int CHOCOLATE_PRICE = 2;
+
     private int quantity;
-    private int price = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +52,15 @@ public class MainActivity extends AppCompatActivity {
         boolean hasChocolate = chocolateView.isChecked();
         Log.i("MainActivity", "Chocolate: " + hasChocolate);
 
-        int price = calculatePrice();
-        Log.i("MainActivity", "The Price is " + price);
+        int totalPrice = calculatePrice(hasWhippedCream, hasChocolate);
+        Log.i("MainActivity", "The Price is " + totalPrice);
 
-        createOrderSummary(price, hasWhippedCream, hasChocolate, name);
+        createOrderSummary(totalPrice, hasWhippedCream, hasChocolate, name);
     }
 
-    private int calculatePrice() {
-        return quantity * price;
+    private int calculatePrice(boolean hasWhippedCream, boolean hasChocolate) {
+        int coffeePrice = COFFEE_PRICE + (hasWhippedCream ? WHIPPED_CREAM_PRICE : 0) + (hasChocolate ? CHOCOLATE_PRICE : 0);
+        return quantity * coffeePrice;
     }
 
     /**
@@ -86,13 +90,13 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view) {
         quantity++;
         display(quantity);
-        displayPrice(quantity * price);
+        displayPrice(quantity * COFFEE_PRICE);
     }
 
     public void decrement(View view) {
         if (quantity > 0) quantity--;
         display(quantity);
-        displayPrice(quantity * price);
+        displayPrice(quantity * COFFEE_PRICE);
     }
 
     @Override
